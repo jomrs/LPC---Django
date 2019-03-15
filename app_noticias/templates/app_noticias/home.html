@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Noticias - Django</title>
+    </head>
+    <body>
+        <h1>Noticias</h1>
+        {% for noticia in object_list %}
+            {% if noticia.publicado %}
+            <div>
+                <h2>{{ noticia.titulo }}</h2>
+                <p>{{ noticia.conteudo | linebreaksbr }}</p>
+                <br>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
