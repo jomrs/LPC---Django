@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Noticias - Django</title>
+        <title>{{ detalhes }}</title>
         <style>
             body {
                 background: #121212;
@@ -37,7 +37,6 @@
                 width: 50%;
                 font-family: Arial, Helvetica, sans-serif;
             }
-
             a {
                 text-decoration: none;
                 color: #ccc;
@@ -49,15 +48,15 @@
         </style>
     </head>
     <body>
-        <h1>Noticias</h1>
-        {% for noticia in object_list %}
-            {% if noticia.publicado %}
-            <div class="noticia">
-                <h2><a href="{% url 'fullpost' pk=noticia.pk %}">{{ noticia.titulo }}</a></h2>
-                <p>{{ noticia.conteudo | linebreaksbr }}</p>
-                <br>
-            </div>
-            {% endif %}
-        {% endfor %}
-    </body>
+        <div>
+            <h2>Exibindo Noticia:</h2><hr>
+            <h1>{{ detalhes }}</h1>
+            <p>{{ detalhes.conteudo | linebreaksbr }}</p>
+            <br>
+            <hr>
+        </div>
+        <footer>
+            <a href="{% url 'home' %}" style="float:left"> << Página Inicial</a>
+        </footer>
+    </body>    
 </html>
