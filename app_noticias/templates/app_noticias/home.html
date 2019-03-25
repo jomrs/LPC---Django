@@ -56,6 +56,12 @@
             {% if noticia.publicado %}
             <div class="noticia">
                 <h2><a href="{% url 'fullpost' pk=noticia.pk %}">{{ noticia.titulo }}</a></h2>
+                <div>Tags:
+                    {% for tag in noticia.tags.all %}
+                        <li>{{ tag }}</li>
+                    {% endfor %}
+                </div>
+                <p>Autor: {{ noticia.autor }}</p>
                 <p>{{ noticia.conteudo | linebreaksbr }}</p>
                 <br>
             </div>
