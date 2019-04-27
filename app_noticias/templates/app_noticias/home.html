@@ -55,7 +55,7 @@
         {% for noticia in object_list %}
             {% if noticia.publicado %}
             <div class="noticia">
-                <h2><a href="{% url 'fullpost' pk=noticia.pk %}">{{ noticia.titulo }}</a></h2>
+                <h2><a href="/noticias/{{ noticia.pk }}">{{ noticia.titulo }}</a></h2>
                 <div>Tags:
                     {% for tag in noticia.tags.all %}
                         <li>{{ tag }}</li>

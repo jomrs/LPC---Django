@@ -1,6 +1,7 @@
 <html>
     <head>
-        <title>{{ detalhes }}</title>
+        <title>{{ noticia }}</title>
+        <!--
         <style>
             body {
                 background: #121212;
@@ -46,12 +47,19 @@
                 text-shadow: 0px 2px 1px #ff1212;
             }
         </style>
+    -->
     </head>
     <body>
         <div>
             <h2>Exibindo Noticia:</h2><hr>
-            <h1>{{ detalhes }}</h1>
-            <p>{{ detalhes.conteudo | linebreaksbr }}</p>
+            <p>
+                Tags:
+                {% for tag in noticia.tags.all %}
+                    <a href="{% url 'slug' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            <h1>{{ noticia }}</h1>
+            <p>{{ noticia.conteudo | linebreaksbr }}</p>
             <br>
             <hr>
         </div>
