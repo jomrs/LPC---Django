@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Noticias com o slug</title>
+    <title>Categorias</title>
 </head>
 <body>
-    {% for noticia in object_list %}
-        <h2>noticia.titulo<h2>
+    <h1>Noticias Encontradas na categoria:</h1><hr>
+    {% for n in noticia %}
+        <h2>{{ n.titulo }}<h2>
     {% endfor %}
 </body>
 </html>

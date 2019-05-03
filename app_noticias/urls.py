@@ -7,7 +7,7 @@ urlpatterns = [
     path('noticias/<int:noticia_id>', noticia_detalhes, name="detalhes"),
     path('noticias/resumo/', noticias_resumo, name='resumo'),
     path('noticias/resumo2/', noticias_resumo_template, name='resumo2'),
-    path('noticias/<str:pk>', slug_view, name='slug')
+    path('noticias/slug/<pk>', slug_view, name='slug')
 ]
 
 

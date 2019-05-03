@@ -19,9 +19,9 @@ def noticia_detalhes(request, noticia_id):
         raise Http404('Notícia não encontrada.')
     return render(request, 'app_noticias/detalhes.html', {'noticia': noticia})
 
-def slug_view(request, pk): #Arrumar
+def slug_view(request, pk):
     try:
-        noticia = Noticia.objects.get(tags=pk)
+        noticia = Noticia.objects.filter(tags__slug=pk)
     except Noticia.DoesNotExist:
         raise Http404('Notícias não encontradas.')
     return render(request, 'app_noticias/slug.html', {'noticia': noticia})
