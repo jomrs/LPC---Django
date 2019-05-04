@@ -1,6 +1,19 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+class MensagemDeContato(models.Model):
+    class Meta:
+        verbose_name = 'Mensagem de contato'
+        verbose_name_plural = 'Mensagens de contato'
+    
+    nome = models.CharField(max_length=128)
+    email = models.EmailField('E-mail', null=True, blank=True)
+    mensagem = models.TextField()
+    data = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.nome
+
 class Pessoa(models.Model): #models.SET_NULL
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Usuário')
     nome = models.CharField('Nome', max_length=128)
