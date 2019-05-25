@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import HomePageView, detalhes, noticias_resumo, noticias_resumo_template, noticia_detalhes, slug_view, ContatoView, ContatoSucessoView
 
 urlpatterns = [
@@ -9,7 +9,8 @@ urlpatterns = [
     path('noticias/resumo2/', noticias_resumo_template, name='resumo2'),
     path('noticias/slug/<pk>', slug_view, name='slug'),
     path('contato/', ContatoView.as_view(), name='contato'),
-    path('contato/sucesso', ContatoSucessoView.as_view(), name='contato_sucesso')
+    path('contato/sucesso', ContatoSucessoView.as_view(), name='contato_sucesso'),
+    path('conta/', include('django.contrib.auth.urls')),
 ]
 
 
